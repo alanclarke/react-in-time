@@ -6,4 +6,3 @@ node_modules
 umd
 npm-debug.log*
 .DS_Store
-package-lock.json
