@@ -14,14 +14,15 @@ class Time extends Component {
     let self = this
     let className = 'ReactInTime'
     let {hours, minutes, period} = this.state
-    let {onChange, value} = this.props
+    let {onChange, value, empty} = this.props
+    value = value || new Date()
     if (hours || minutes || period) className += ' ReactInTime--selected'
     return (
       <span className={className}>
-        <Hours selected={hours} onChangeSelect={select('hours')} onChange={val => onChange(val)} value={value} />
-        <span className='Divider'>:</span>
-        <Minutes selected={minutes} onChangeSelect={select('minutes')} onChange={val => onChange(val)} value={value} />
-        <Period selected={period} onChangeSelect={select('period')} onChange={val => onChange(val)} value={value} />
+        <Hours selected={hours} onChangeSelect={select('hours')} onChange={val => onChange(val)} value={value} empty={empty} />
+        <span className='ReactInTime-Divider'>:</span>
+        <Minutes selected={minutes} onChangeSelect={select('minutes')} onChange={val => onChange(val)} value={value} empty={empty} />
+        <Period selected={period} onChangeSelect={select('period')} onChange={val => onChange(val)} value={value} empty={empty} />
       </span>
     )
 
@@ -32,13 +33,14 @@ class Time extends Component {
 }
 
 Time.defaultProps = {
-  value: new Date(),
-  onChange: noop
+  onChange: noop,
+  empty: false
 }
 
 Time.propTypes = {
   value: PropTypes.instanceOf(Date),
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  empty: PropTypes.bool
 }
 
 export default Time

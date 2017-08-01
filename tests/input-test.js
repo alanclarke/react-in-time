@@ -114,8 +114,9 @@ describe('Input', () => {
   })
 
   it('should not error if no onChange handler or date is passed in', () => {
-    date = new Date('Thu Jul 27 2017 06:15:26 GMT+0100 (BST)')
+    date = new Date('Thu Jul 27 2017 18:15:26 GMT+0100 (BST)')
     render(<Time />, node, () => {})
+    render(<Time value={date} />, node, () => {})
     events.fire(periodInput, 'keydown', { which: keycode('a'), keyCode: keycode('a'), key: 'a' })
   })
 })

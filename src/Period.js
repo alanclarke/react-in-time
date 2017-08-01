@@ -10,12 +10,13 @@ class Period extends Component {
     this.state = { selected: false }
   }
   render () {
+    let {value, onChangeSelect, selected, empty} = this.props
     return (
       <Digit
         onKeyDown={e => this.onKeyDown(e)}
-        value={parseValue(this.props.value)}
-        selected={this.props.selected}
-        onChangeSelect={val => this.props.onChangeSelect(val)}
+        value={empty ? '--' : parseValue(value)}
+        selected={selected}
+        onChangeSelect={val => onChangeSelect(val)}
       />
     )
   }
@@ -29,7 +30,7 @@ class Period extends Component {
     let {value, onChange} = this.props
     let newDate = new Date(value.valueOf())
     newDate.setHours(
-      value === 'PM'
+      parseValue(value) === 'PM'
         ? newDate.getHours() - 12
         : newDate.getHours() + 12
     )
@@ -42,14 +43,16 @@ Period.propTypes = {
   value: PropTypes.instanceOf(Date),
   onChange: PropTypes.func,
   onChangeSelect: PropTypes.func,
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  empty: PropTypes.bool
 }
 
 Period.defaultProps = {
   value: 'PM',
   onChange: noop,
   onChangeSelect: noop,
-  selected: false
+  selected: false,
+  empty: false
 }
 
 export default Period

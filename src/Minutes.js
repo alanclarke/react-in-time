@@ -10,12 +10,13 @@ class Minutes extends Component {
     this.state = { selected: false }
   }
   render () {
+    let {value, onChangeSelect, selected, empty} = this.props
     return (
       <Digit
-        value={format(this.props.value)}
+        value={empty ? '--' : format(value)}
         onKeyDown={e => this.onKeyDown(e)}
-        selected={this.props.selected}
-        onChangeSelect={val => this.props.onChangeSelect(val)}
+        selected={selected}
+        onChangeSelect={val => onChangeSelect(val)}
       />
     )
   }
@@ -49,14 +50,16 @@ Minutes.propTypes = {
   value: PropTypes.instanceOf(Date),
   onChange: PropTypes.func,
   onChangeSelect: PropTypes.func,
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  empty: PropTypes.bool
 }
 
 Minutes.defaultProps = {
   value: null,
   onChange: noop,
   onChangeSelect: noop,
-  selected: false
+  selected: false,
+  empty: false
 }
 
 function format (date) {

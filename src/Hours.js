@@ -10,12 +10,13 @@ class Hours extends Component {
     this.state = { selected: false }
   }
   render () {
+    let {value, onChangeSelect, selected, empty} = this.props
     return (
       <Digit
         onKeyDown={e => this.onKeyDown(e)}
-        value={String(to12Hour(this.props.value.getHours()))}
-        selected={this.props.selected}
-        onChangeSelect={val => this.props.onChangeSelect(val)}
+        value={empty ? '--' : String(to12Hour(value.getHours()))}
+        selected={selected}
+        onChangeSelect={val => onChangeSelect(val)}
       />
     )
   }
@@ -56,14 +57,16 @@ Hours.propTypes = {
   value: PropTypes.instanceOf(Date),
   onChange: PropTypes.func,
   onChangeSelect: PropTypes.func,
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  empty: PropTypes.bool
 }
 
 Hours.defaultProps = {
   value: null,
   onChange: noop,
   onChangeSelect: noop,
-  selected: false
+  selected: false,
+  empty: false
 }
 
 export default Hours
