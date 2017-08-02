@@ -20,7 +20,7 @@ class Time extends Component {
     return (
       <span className={className}>
         <Hours selected={hours} onChangeSelect={select('hours')} onChange={val => onChange(val)} value={value} empty={empty} />
-        <span className='ReactInTime-Divider'>:</span>
+        <span className='ReactInTime-divider'>:</span>
         <Minutes selected={minutes} onChangeSelect={select('minutes')} onChange={val => onChange(val)} value={value} empty={empty} />
         <Period selected={period} onChangeSelect={select('period')} onChange={val => onChange(val)} value={value} empty={empty} />
       </span>

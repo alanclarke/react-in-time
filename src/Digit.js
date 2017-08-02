@@ -4,11 +4,11 @@ import noop from './lib/noop'
 
 class Digit extends Component {
   render () {
-    let className = 'ReactInTime-Digit'
-    if (this.props.selected) className += ' ReactInTime-Digit--selected'
+    let className = 'ReactInTime-digit'
+    if (this.props.selected) className += ' ReactInTime-digit--selected'
     return (
       <span className={className} onClick={e => this.onClick(e)}>
-        <label>{this.props.value}</label>
+        <label className='ReactInTime-digitLabel'>{this.props.value}</label>
         <input
           ref={(input) => { this.input = input }}
           style={{opactiy: 0, width: 0, margin: 0, height: 0, padding: 0, border: 'none'}}

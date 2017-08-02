@@ -15,7 +15,7 @@ describe('Arrows', () => {
     node = document.createElement('div')
     document.body.appendChild(node)
     render(<Time value={date} onChange={onChange} />, node, () => {
-      digits = [].slice.call(node.querySelectorAll('.ReactInTime-Digit'))
+      digits = [].slice.call(node.querySelectorAll('.ReactInTime-digit'))
       inputs = digits.map(digit => digit.querySelectorAll('input')[0])
       ;[hourInput, minuteInput, periodInput] = inputs
     })

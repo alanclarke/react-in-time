@@ -1,38 +1,39 @@
 .ReactInTime {
   border: 1px solid #ccc;
-  padding: 4px 2px;
+  padding: 6px 6px;
   font-family: Helvetica, Arial, Lucida Grande, sans-serif;
   font-size: 12px;
   color: #1d2129;
-  border-radius: 3px;
+  border-radius: 4px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: 62px;
 }
 .ReactInTime--selected {
   border-color: #3B72FF;
 }
-.ReactInTime-Digit--selected {
+.ReactInTime-digit--selected {
   border-radius: 2px;
   background: #D2E0FF;
 }
-.ReactInTime-Digit,.ReactInTime-Divider {
+.ReactInTime-digit,.ReactInTime-divider {
   display: inline-block;
 }
-.ReactInTime-Digit {
+.ReactInTime-digit {
   cursor: pointer;
   width: 1.3em;
   text-align: right;
   padding: 2px 0px;
   padding-right: 2px;
 }
-.ReactInTime-Digit:last-child {
+.ReactInTime-digit:last-child {
+  width: 1.5em;
   padding: 2px 2px;
-  width: inherit;
 }
-.ReactInTime-Digit label {
+.ReactInTime-digitLabel {
   cursor: pointer;
 }
