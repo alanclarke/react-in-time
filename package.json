@@ -1,6 +1,6 @@
 {
   "name": "react-in-time",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A keyboard friendly react component for capturing time",
   "main": "lib/index.js",
   "module": "es/index.js",
