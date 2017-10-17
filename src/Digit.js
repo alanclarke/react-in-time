@@ -1,17 +1,44 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import noop from './lib/noop'
+const parentStyle = {
+  position: 'relative'
+}
+const digitStyle = {
+  display: 'block',
+  height: '100%',
+  width: '100%',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  outline: 'none',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  verticalAlign: 'middle',
+  zIndex: 1,
+  textAlign: 'center',
+  lineHeight: '1.5em'
+}
+const inputStyle = {
+  borderWidth: 0,
+  boxSizing: 'border-box',
+  height: '1em',
+  opacity: 0,
+  padding: 0,
+  position: 'relative',
+  whiteSpace: 'nowrap'
+}
 
 class Digit extends Component {
   render () {
     let className = 'ReactInTime-digit'
     if (this.props.selected) className += ' ReactInTime-digit--selected'
     return (
-      <span className={className} onClick={e => this.onClick(e)}>
-        <label className='ReactInTime-digitLabel'>{this.props.value}</label>
+      <span className={className} onClick={e => this.onClick(e)} style={parentStyle}>
+        <label className='ReactInTime-digitLabel' style={digitStyle}>{this.props.value}</label>
         <input
           ref={(input) => { this.input = input }}
-          style={{opactiy: 0, width: 0, margin: 0, height: 0, padding: 0, border: 'none'}}
+          style={inputStyle}
           onKeyDown={e => this.onKeyDown(e)}
           onChange={noop}
           onFocus={() => this.onSelect()}
