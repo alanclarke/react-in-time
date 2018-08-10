@@ -32,7 +32,7 @@
     "simulant": "^0.2.2",
     "sinon": "^2.4.1"
   },
-  "author": "Alan Clarke <hi@alz.io> (alz.io)",
+  "author": "Alan Clarke <code@alz.io> (alz.io)",
   "homepage": "https://github.com/alanclarke/react-in-time#readme",
   "license": "MIT",
   "repository": {
